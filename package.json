@@ -1,0 +1,23 @@
+{
+  "name": "noderead",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brynnke/noderead.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brynnke/noderead/issues"
+  },
+  "homepage": "https://github.com/brynnke/noderead#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
