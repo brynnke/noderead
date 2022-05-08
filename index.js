@@ -39,6 +39,76 @@ const questions = [
             }
         }
     },
+    {
+        type: 'input',
+        name: 'what',
+        message: 'What is your project, what problems will it solve? (Required)',
+
+
+    },
+    {
+        type:'input',
+        name:'why',
+        message:'Why was this project created? (Required)',
+
+    },
+    {
+        type:'input',
+        name:'how',
+        message:'How will this project be used by the user? (Required)',
+
+    },
+    {
+        type:'input',
+        name:'install',
+        message:'Please provide detailed step by step instructions for the installation for your project. (Required)',
+
+    },
+    {
+        type: 'input',
+        name: 'use',
+        message: 'Provide instructions and examples of intened use. (Required)',
+
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What license will you use for your project?',
+        choices: ['apache', 'gpl','agpl', 'no licesne']
+    },
+    {
+        type: 'confirm',
+        name:'contribute',
+        message:' Please include guidelines for contributing. (Required)',
+        when: ({ confirmContributer }) => {
+            if (confirmContributer) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: contributerInput => {
+            if (contributerInput) {
+                return true;
+            } else {
+                console.log('Please enter contribuer guidlines.');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'test', 
+        message: 'Please provide instructions on how to test the app. (Required)',
+        validate: testInput => {
+            if (testInput) {
+                return true;
+            } else {
+                console.log('Please enter test instructions');
+                return false;
+            }
+        }
+    }
 ];
 
 // TODO: Create a function to write README file
