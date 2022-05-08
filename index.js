@@ -6,9 +6,38 @@ var generateMarkdown = require('./utilis/generatemarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
+        type:'input',
+        name:'title',
+        message:'What is the title of this project? (Required)',
+        validate: titleInput => {
+            if (titleInput) {
+                if (titleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your title!');
+                    return false;
+                }
+            }
+        }
+
+    },
+    {
         type: 'input',
         name: 'discription',
         message: 'Can you discribe your project? (Required)',
+    },
+    {
+        type: 'input',
+        name: 'githubUsername',
+        message:'What is your GITHUB username? (Required)',
+        validate: githubInput => {
+            if (githubInput){
+                return true;
+            } else {
+                console.log('Please enter your GITHUB username!');
+                return false;
+            }
+        }
     },
 ];
 
