@@ -43,31 +43,66 @@ const questions = [
         type: 'input',
         name: 'what',
         message: 'What is your project, what problems will it solve? (Required)',
-
-
+        validate: whatInput => {
+            if (whatInput) {
+                return true;
+            } else {
+                console.log('Please put what your project is');
+                return false;
+            }
+        }
     },
     {
         type:'input',
         name:'why',
         message:'Why was this project created? (Required)',
+        validate: whyInput => {
+            if (whyInput) {
+                return true;
+            } else {
+                console.log('Please enter why you created the project');
+                return false;
+            }
+        }
 
     },
     {
         type:'input',
         name:'how',
         message:'How will this project be used by the user? (Required)',
-
+        validate: howInput => {
+            if (howInput) {
+                return true; 
+            } else {
+                console.log('Please enter project details');
+                return false;
+            }
+        }
     },
     {
         type:'input',
         name:'install',
         message:'Please provide detailed step by step instructions for the installation for your project. (Required)',
-
+        validate: installInput => {
+            if (installInput) {
+                return true;
+            } else {
+                console.log('please enter installation instructions');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'use',
         message: 'Provide instructions and examples of intened use. (Required)',
+        validate: installInput => {
+            if(installInput) {
+                return true;
+            } else {
+                console.log('Please enter use instructions!');
+            }
+        }
 
     },
     {
@@ -111,12 +146,12 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) { 
     fs.writeFileSync(fileName, data)
 }
 
-// TODO: Create a function to initialize app
+// Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
