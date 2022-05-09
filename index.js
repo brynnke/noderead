@@ -1,4 +1,5 @@
 // required packages 
+const {writeFile, copyFile} = require('./utilis/generate-site.js');
 var fs = require('fs');
 var inquirer = require('inquirer');
 var generateMarkdown = require('./utilis/generatemarkdown');
@@ -145,6 +146,7 @@ const questions = [
         }
     }
 ];
+
 
 // function to write README file
 function writeToFile(fileName, data) {
