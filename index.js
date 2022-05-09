@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// required packages 
 var fs = require('fs');
 var inquirer = require('inquirer');
 var generateMarkdown = require('./utilis/generatemarkdown');
@@ -6,9 +6,9 @@ var generateMarkdown = require('./utilis/generatemarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        type:'input',
-        name:'title',
-        message:'What is the title of this project? (Required)',
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of this project? (Required)',
         validate: titleInput => {
             if (titleInput) {
                 if (titleInput) {
@@ -29,9 +29,9 @@ const questions = [
     {
         type: 'input',
         name: 'githubUsername',
-        message:'What is your GITHUB username? (Required)',
+        message: 'What is your GITHUB username? (Required)',
         validate: githubInput => {
-            if (githubInput){
+            if (githubInput) {
                 return true;
             } else {
                 console.log('Please enter your GITHUB username!');
@@ -53,9 +53,9 @@ const questions = [
         }
     },
     {
-        type:'input',
-        name:'why',
-        message:'Why was this project created? (Required)',
+        type: 'input',
+        name: 'why',
+        message: 'Why was this project created? (Required)',
         validate: whyInput => {
             if (whyInput) {
                 return true;
@@ -67,12 +67,12 @@ const questions = [
 
     },
     {
-        type:'input',
-        name:'how',
-        message:'How will this project be used by the user? (Required)',
+        type: 'input',
+        name: 'how',
+        message: 'How will this project be used by the user? (Required)',
         validate: howInput => {
             if (howInput) {
-                return true; 
+                return true;
             } else {
                 console.log('Please enter project details');
                 return false;
@@ -80,9 +80,9 @@ const questions = [
         }
     },
     {
-        type:'input',
-        name:'install',
-        message:'Please provide detailed step by step instructions for the installation for your project. (Required)',
+        type: 'input',
+        name: 'install',
+        message: 'Please provide detailed step by step instructions for the installation for your project. (Required)',
         validate: installInput => {
             if (installInput) {
                 return true;
@@ -97,7 +97,7 @@ const questions = [
         name: 'use',
         message: 'Provide instructions and examples of intened use. (Required)',
         validate: installInput => {
-            if(installInput) {
+            if (installInput) {
                 return true;
             } else {
                 console.log('Please enter use instructions!');
@@ -109,12 +109,12 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license will you use for your project?',
-        choices: ['apache', 'gpl','agpl', 'no licesne']
+        choices: ['apache', 'gpl', 'agpl', 'no licesne']
     },
     {
         type: 'confirm',
-        name:'contribute',
-        message:' Please include guidelines for contributing. (Required)',
+        name: 'contribute',
+        message: ' Please include guidelines for contributing. (Required)',
         when: ({ confirmContributer }) => {
             if (confirmContributer) {
                 return true;
@@ -133,7 +133,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'test', 
+        name: 'test',
         message: 'Please provide instructions on how to test the app. (Required)',
         validate: testInput => {
             if (testInput) {
@@ -147,30 +147,40 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) { 
+function writeToFile(fileName, data) {
     fs.writeFileSync(fileName, data)
+    fs.writeFile('./dist/generated-REAMDE.md', filecontent, err => {
+        if (err) {
+            reject(err);
+            return;
+        }
+
+
+    })
 }
 
 // Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
-    .then((answers) => {
-       var templateHTML = generateMarkdown(answers)
-       writeToFile('REAMDE.md', templateHTML);
-        // Use user feedback for... whatever!!
+        .then((answers) => {
+            var templateHTML = generateMarkdown(answers)
+            writeToFile('README.md', templateHTML);
+            // Use user feedback for... whatever!!
 
-    })
-    .catch((error) => {
-        if (error.isTtyError) {
-            // Prompt couldn't be rendered in the current environment
-        } else {
-            // Something else went wrong
-        }
-    });
+        })
+        .catch((error) => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else went wrong
+            }
+        });
 }
 
+
 // Function call to initialize app
-init();
+init()
+
 
 
