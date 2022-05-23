@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // page link for the README to be developed
-const generatePage = require('./utilis/generatemarkdown.js');
+const generatePage = require('./utilis/generatemarkdown');
 
 // array questions to answer
 const questions = () => {
@@ -11,7 +11,7 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'github',
+            data: 'github',
             message: 'What is your username on GITHUB?',
             validate: nameInput => {
                 if (nameInput) {
@@ -24,7 +24,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'title',
+            data: 'title',
             message: 'What is the title of your project?',
             validate: nameInput => {
                 if (nameInput) {
@@ -37,7 +37,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'email',
+            data: 'email',
             message: 'Please enter email address',
             validate: nameInput => {
                 if (nameInput) {
@@ -50,7 +50,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'description',
+            data: 'description',
             message: 'Please provide a brief description of your project',
             validate: nameInput => {
                 if (nameInput) {
@@ -63,7 +63,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'licesne',
+            data: 'licesne',
             message: 'What license type should your project have?',
             choices: ['GNU', 'MIT'],
             default: ["MIT"],
@@ -78,7 +78,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'use',
+            data: 'use',
             message: 'How do you use this app?',
             validate: nameInput => {
                 if (nameInput) {
@@ -91,13 +91,13 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'test',
+            data: 'test',
             message: 'What command is to be run for tests?',
             default: 'npm test' 
         },
         {
             type: 'input',
-            name: 'contributors',
+            data: 'contributors',
             message: 'What doe contributors need to know about adding to the repo?'
         }
     ]);
