@@ -11,7 +11,7 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            data: 'github',
+            name: 'github',
             message: 'What is your username on GITHUB?',
             validate: nameInput => {
                 if (nameInput) {
@@ -24,7 +24,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'title',
+            name: 'title',
             message: 'What is the title of your project?',
             validate: nameInput => {
                 if (nameInput) {
@@ -37,7 +37,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'email',
+            name: 'email',
             message: 'Please enter email address',
             validate: nameInput => {
                 if (nameInput) {
@@ -50,7 +50,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'description',
+            name: 'description',
             message: 'Please provide a brief description of your project',
             validate: nameInput => {
                 if (nameInput) {
@@ -63,7 +63,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'licesne',
+            name: 'licesne',
             message: 'What license type should your project have?',
             choices: ['GNU', 'MIT'],
             default: ["MIT"],
@@ -78,7 +78,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'use',
+            name: 'use',
             message: 'How do you use this app?',
             validate: nameInput => {
                 if (nameInput) {
@@ -91,13 +91,13 @@ const questions = () => {
         },
         {
             type: 'input',
-            data: 'test',
+            name: 'test',
             message: 'What command is to be run for tests?',
             default: 'npm test' 
         },
         {
             type: 'input',
-            data: 'contributors',
+            name: 'contributors',
             message: 'What doe contributors need to know about adding to the repo?'
         }
     ]);

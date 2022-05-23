@@ -1,45 +1,33 @@
-
-   
-// licesne bagdge if licesnse is chosen
-//const addLicenseBadge(license){}
- 
-
-
-
-
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
-  if (license !== 'no license') {
-    return 'https://choosealicense.com/licenses/';
-  } else {
-    return '';
-  }
-}
-
-// function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-  if (license !== 'no license') {
-    return 'https://choosealicense.com/licenses/';
-  } else {
-    return '';
-  }
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  if (license !== 'no license') {
-    return 'https://choosealicense.com/licenses/';
-  } else {
-    return '';
-  }
-}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+// function to generate markdown for README
+const generateMarkdown = data => {
   return `# ${data.title}
+  ![Github licence] (https://img.shields.io/npm/l/express)
+  
+  ## Description 
+  ${data.description}
+  ## Table of Contents
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
+  ## Installation 
+  ${data.install}
+  ## Usage 
+  ${data.usage}
+  ## License 
+  This project is license under ${data.license}
+  ## Contributing 
+  ${data.contributors}
+  ## Tests
+  ${data.test}
+  ## Questions
+  If you have any questions about this projects, please contact me directly at ${data.email}. You can view more of my projects at https://github.com/${data.github}.
 `;
 }
 
+
+// use for importing Markdown in index 
 module.exports = generateMarkdown;
