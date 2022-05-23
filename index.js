@@ -1,8 +1,9 @@
 // required packages 
-const {writeFile, copyFile} = require('./utilis/generate-site.js');
+const {writeFile, copyFile} = require('./utilis/generatemarkdown.js');
 var fs = require('fs');
 var inquirer = require('inquirer');
 var generateMarkdown = require('./utilis/generatemarkdown');
+
 
 // TODO: Create an array of questions for user input
 const questions = [

@@ -1,13 +1,10 @@
 
    
 // licesne bagdge if licesnse is chosen
-const addLicenseBadge = license => {
-  if (license) {
-    return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)'
-  } else {
-    return '',
-}
-}
+//const addLicenseBadge(license){}
+ 
+
+
 
 
 // If there is no license, return an empty string
